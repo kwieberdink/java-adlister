@@ -14,6 +14,13 @@
     <title><%= "some title" %></title>
 </head>
 <body>
+<c:if test="true">
+    <h1>Variable names should be very descriptive</h1>
+</c:if>
+<c:if test="false">
+    <h1>single letter variable names are good</h1>
+</c:if>
+
 <!-- This is an HTML comment you will see this in the HTML-->
 <%--This is a JSP comment you will not see this in the HTML--%>
 
