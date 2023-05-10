@@ -1,11 +1,47 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Order Pizza</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+    <title>Pizza Order Form</title>
 </head>
 <body>
+<h1>Pizza Order Form</h1>
+<form action="PizzaOrderServlet" method="post">
+    <label for="crust">Crust:</label>
+    <select id="crust" name="crust">
+        <option value="thin">Thin</option>
+        <option value="thick">Thick</option>
+        <option value="deep-dish">Deep Dish</option>
+    </select><br><br>
 
+    <label for="sauce">Sauce:</label>
+    <select id="sauce" name="sauce">
+        <option value="tomato">Tomato</option>
+        <option value="bbq">BBQ</option>
+        <option value="alfredo">Alfredo</option>
+    </select><br><br>
+
+    <label for="size">Size:</label>
+    <select id="size" name="size">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="extra-large">Extra Large</option>
+    </select><br><br>
+
+    <label>Toppings:</label><br>
+    <input type="checkbox" id="pepperoni" name="toppings" value="pepperoni">
+    <label for="pepperoni">Pepperoni</label><br>
+    <input type="checkbox" id="mushrooms" name="toppings" value="mushrooms">
+    <label for="mushrooms">Mushrooms</label><br>
+    <input type="checkbox" id="onions" name="toppings" value="onions">
+    <label for="onions">Onions</label><br>
+    <input type="checkbox" id="sausage" name="toppings" value="sausage">
+    <label for="sausage">Sausage</label><br><br>
+
+    <label for="address">Delivery Address:</label>
+    <input type="text" id="address" name="address"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
