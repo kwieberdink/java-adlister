@@ -11,9 +11,12 @@
 
 <html>
 <head>
-    <title><%= "some title" %></title>
+    <jsp:include page="partials/head.jsp">
+        <jsp:param name="title" value="Welcome to my site!" />
+    </jsp:include>
 </head>
 <body>
+<<<<<<< HEAD
 <c:if test="true">
     <h1>Variable names should be very descriptive</h1>
 </c:if>
