@@ -1,21 +1,31 @@
 package models;
 
-import java.io.Serializable;
+public class Album {
 
-public class Album implements Serializable {
-
-    private long id;
+    private Long id;
     private String artist;
     private String name;
     private int releaseDate;
     private double sales;
     private String genres;
 
-    public long getId() {
+    public Album() {
+    }
+
+    public Album(Long id, String artist, String name, int releaseDate, double sales, String genres) {
+        this.id = id;
+        this.artist = artist;
+        this.name = name;
+        this.releaseDate = releaseDate;
+        this.sales = sales;
+        this.genres = genres;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -47,7 +57,7 @@ public class Album implements Serializable {
         return sales;
     }
 
-    public void setSales(float sales) {
+    public void setSales(double sales) {
         this.sales = sales;
     }
 
@@ -55,19 +65,7 @@ public class Album implements Serializable {
         return genres;
     }
 
-    public void setGenre(String genres) {
-        this.genres = genres;
-    }
-
-    public Album() {
-    }
-
-    public Album(long id, String artist, String name, int releaseDate, double sales, String genres) {
-        this.id = id;
-        this.artist = artist;
-        this.name = name;
-        this.releaseDate = releaseDate;
-        this.sales = sales;
+    public void setGenres(String genres) {
         this.genres = genres;
     }
 }
