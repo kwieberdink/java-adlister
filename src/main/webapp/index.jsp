@@ -1,8 +1,3 @@
-<%--
-    JSP TAGS [JavaServerPages]
-    @: Directive, defining attributes
-    V taglib: TAG LIBRARY
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--Declaration, JSP variable can be declared here--%>
@@ -16,7 +11,6 @@
     </jsp:include>
 </head>
 <body>
-<<<<<<< HEAD
 <c:if test="true">
     <h1>Variable names should be very descriptive</h1>
 </c:if>
@@ -81,5 +75,9 @@
     <c:if test="false">
         <h1>single letter variable names are good</h1>
     </c:if>
+    <jsp:include page="partials/navbar.jsp" />
+    <div class="container">
+        <h1>Welcome to the Adlister!</h1>
+    </div>
 </body>
 </html>
