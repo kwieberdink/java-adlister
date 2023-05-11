@@ -19,14 +19,10 @@ public class PostServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String post = req.getParameter("post");
+        String body = req.getParameter("body");
         String title = req.getParameter("title");
-        String[] topics = req.getParameterValues("topic");
-        Post submittedPost = new Post(title, post, topics);
-        String fontSizeRequested = req.getParameter("font-size");
-        System.out.println(fontSizeRequested);
-        req.setAttribute("post", submittedPost);
-        req.setAttribute("font", fontSizeRequested);
+        Post post = new Post(title, body);
+        req.setAttribute("post", post);
         req.getRequestDispatcher("/blog/createPost.jsp").forward(req, resp);
     }
 }
