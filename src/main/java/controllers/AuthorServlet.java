@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("authors")
+@WebServlet("/authors")
 public class AuthorServlet extends HttpServlet {
 
     @Override
@@ -20,6 +20,6 @@ public class AuthorServlet extends HttpServlet {
         Authors authorsDao = new AuthorsDao();
         List<Author> authors = authorsDao.all();
         req.setAttribute("authors", authors);
-        req.getRequestDispatcher("authors.jsp").forward (req,resp);
+        req.getRequestDispatcher("/WEB-INF/authors.jsp").forward(req,resp);
     }
 }
