@@ -8,6 +8,8 @@ import java.util.List;
 public class MySQLAdsDao implements Ads {
     private final Connection connection;
 
+    public
+
     @Override
     public List<Ad> all() {
         return null;
