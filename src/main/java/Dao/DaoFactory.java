@@ -1,9 +1,9 @@
-package dao;
+package Dao;
 
-import dao.Ads;
+import Dao.Ads;
 
 public class DaoFactory {
-    private static Ads adsDao;
+    private static Dao.Ads adsDao;
 
     public static Ads getAdsDao() {
         if (adsDao == null) {

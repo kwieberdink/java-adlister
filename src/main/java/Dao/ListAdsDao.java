@@ -1,12 +1,13 @@
-package dao;
+package Dao;
 
-import dao.Ads;
-import models.Ad;
+
+
+import Models.Ad;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListAdsDao implements Ads {
+public class ListAdsDao implements Dao.Ads {
     private List<Ad> ads;
 
     public List<Ad> all() {

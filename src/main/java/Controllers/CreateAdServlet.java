@@ -1,8 +1,8 @@
-package controllers;
+package Controllers;
 
-import dao.DaoFactory;
+import Dao.DaoFactory;
 
-import models.Ad;
+import Models.Ad;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +24,7 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("title"),
             request.getParameter("description")
         );
-        DaoFactory.getAdsDao().insert(ad);
+        Dao.DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
     }
 }
