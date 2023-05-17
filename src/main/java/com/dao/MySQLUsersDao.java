@@ -1,20 +1,20 @@
-package com.codeup.adlister.dao;
+package com.dao;
 
-import com.codeup.adlister.models.User;
+import com.models.User;
 import com.mysql.cj.jdbc.Driver;
-
+import config.Config;
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
     private Connection connection;
 
-    public MySQLUsersDao(Config config) {
+    public MySQLUsersDao(Config Config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                Config.getUrl(),
+                Config.getUser(),
+                Config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);

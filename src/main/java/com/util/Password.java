@@ -1,4 +1,4 @@
-package com.codeup.adlister.util;
+package com.util;
 
 import org.mindrot.jbcrypt.BCrypt;
 
