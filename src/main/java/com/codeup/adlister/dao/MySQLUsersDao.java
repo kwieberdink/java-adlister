@@ -13,11 +13,11 @@ public class MySQLUsersDao implements Users{
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                    Config.getUrl(),
-                    Config.getUser(),
-                    Config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
-        }  catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
@@ -29,15 +29,15 @@ public class MySQLUsersDao implements Users{
             stmt.setString(1, username);
             return extractUser(stmt.executeQuery());
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error finding a user by username", e);
         }
     }
 
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setString(1, user.getUsername());
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1,user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
             stmt.executeUpdate();
@@ -45,19 +45,19 @@ public class MySQLUsersDao implements Users{
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error finding a user by username", e);
         }
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if(!rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password")
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password")
         );
     }
 }
